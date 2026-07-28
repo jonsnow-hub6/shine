@@ -1,0 +1,13 @@
+node_modules
+dist
+.nx
+.git
+.gitignore
+coverage
+.tmp
+.cache
+
+apps/*/pb_data
+apps/*/pb_hooks
+
+*.log

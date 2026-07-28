@@ -1,0 +1,67 @@
+{
+  "name": "@shine/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "frontend": "nx serve frontend",
+    "backend": "nx serve backend",
+
+    "dev": "nx run-many -t serve --projects=backend,frontend --parallel",
+
+    "build": "nx build frontend",
+
+    "docker:up": "docker compose up",
+    "docker:down": "docker compose down",
+    "reset": "nx reset"
+  },
+  "private": true,
+    "workspaces": [
+    "apps/*"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@nx/eslint": "23.1.0",
+    "@nx/eslint-plugin": "23.1.0",
+    "@nx/jest": "23.1.0",
+    "@nx/js": "23.1.0",
+    "@nx/react": "^23.1.0",
+    "@nx/vite": "23.1.0",
+    "@nx/web": "23.1.0",
+    "@nx/workspace": "23.1.0",
+    "@swc/cli": "~0.8.1",
+    "@swc/core": "~1.15.5",
+    "@swc/helpers": "~0.5.18",
+    "@testing-library/dom": "10.4.0",
+    "@testing-library/react": "16.3.0",
+    "@types/jest": "~30.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "babel-jest": "~30.3.0",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^10.0.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-jsx-a11y": "6.10.1",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "5.0.0",
+    "jest": "~30.3.0",
+    "jest-environment-jsdom": "~30.3.0",
+    "jest-util": "~30.3.0",
+    "jiti": "2.4.2",
+    "nx": "23.1.0",
+    "prettier": "~3.6.2",
+    "ts-jest": "^29.4.7",
+    "ts-node": "10.9.1",
+    "tslib": "^2.3.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.58.0",
+    "vite": "^8.0.0"
+  },
+  "dependencies": {
+    "pocketbase": "^0.27.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "6.30.3"
+  }
+}
