@@ -1,7 +1,7 @@
 autoInstallPeers: true
 allowBuilds:
   '@swc/core': true
-  esbuild: set this to true or false
+  esbuild: true
   nx: true
   unrs-resolver: true
 # pnpm-workspace.yaml

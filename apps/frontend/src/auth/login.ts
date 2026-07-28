@@ -1,4 +1,5 @@
 import { pb } from "../services/pocketbase";
+import type { UserRecord } from "./types";
 
 export async function login(
   email: string,

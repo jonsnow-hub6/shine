@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { pb } from "../../services/pocketbase";
-import { Alert } from "../types";
+import type { Alert } from "../types";
 
 export function useAlerts() {
   const [alerts, setAlerts] = useState<Alert[]>([]);
