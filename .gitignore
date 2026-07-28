@@ -48,3 +48,6 @@ vite.config.*.timestamp*
 
 # PocketBase
 pb_data
+
+# Env
+apps/frontend/.env
