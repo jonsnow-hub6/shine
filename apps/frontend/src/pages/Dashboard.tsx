@@ -41,7 +41,7 @@ export default function DashboardPage() {
       </Col>
 
       <Col span={16}>
-        < ActiveAlerts/>
+        <ActiveAlerts />
       </Col>
     </Row>
   );

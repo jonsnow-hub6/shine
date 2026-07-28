@@ -1,43 +1,27 @@
-import { useState } from "react";
-import {
-  Modal,
-  Button,
-  Typography,
-} from "antd";
+import { useState } from 'react';
+import { Modal, Button, Typography } from 'antd';
 
-import {
-  unlockAlertSound,
-} from "./audioManager";
-import { getSoundPreference, setSoundPreference } from "./aduioPreferences";
-
-
-
+import { unlockAlertSound } from './audioManager';
+import { getSoundPreference, setSoundPreference } from './aduioPreferences';
+import { requestNotificationPermission } from '../../features/notifications/browserNotifications';
 
 export function SoundPermissionModal() {
+  const [open, setOpen] = useState(!getSoundPreference());
 
-  const [open, setOpen] = useState(
-    !getSoundPreference()
-  );
+async function enableSound() {
 
-
-  async function enableSound() {
-
-    const success =
-      await unlockAlertSound();
+  const soundEnabled =
+    await unlockAlertSound();
 
 
-    if (success) {
-      setSoundPreference(true);
-      setOpen(false);
-    }
-
-  }
+  await requestNotificationPermission();
 
 
-  function disableSound() {
+  if(soundEnabled){
     setSoundPreference(true);
     setOpen(false);
   }
+}
 
 
   return (
@@ -46,28 +30,14 @@ export function SoundPermissionModal() {
       title="Enable alert sounds?"
       closable={false}
       footer={[
-        <Button
-          key="disable"
-          onClick={disableSound}
-        >
-          Not now
-        </Button>,
-
-        <Button
-          key="enable"
-          type="primary"
-          onClick={enableSound}
-        >
+        <Button key="enable" type="primary" onClick={enableSound}>
           Enable sound
         </Button>,
       ]}
     >
-
       <Typography.Paragraph>
-        Shine uses audio alerts to notify you
-        when new incidents arrive.
+        Shine uses audio alerts to notify you when new incidents arrive.
       </Typography.Paragraph>
-
     </Modal>
   );
 }

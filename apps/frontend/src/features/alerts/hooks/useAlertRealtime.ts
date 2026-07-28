@@ -12,7 +12,7 @@ export function useAlertRealtime() {
   useEffect(() => {
     const unsubscribe = pb.collection('alerts').subscribe<Alert>('*', (event) => {
       if (event.action === 'create') {
-        dispatch(addAlert({...event.record, isNew: true}));
+        dispatch(addAlert({ ...event.record, isNew: true }));
       }
     });
 

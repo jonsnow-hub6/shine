@@ -1,33 +1,39 @@
-import { useEffect } from "react";
-import { useAppSelector } from "../../app/store";
-import { startAlertSound, stopAlertSound } from "../../services/alertSound/audioManager";
+import { useEffect } from 'react';
+import { useAppSelector } from '../../app/store';
+import { startAlertSound, stopAlertSound } from '../../services/alertSound/audioManager';
+import { showAlertNotification } from './browserNotifications';
+
+export function AlertNotificationProvider({ children }: { children: React.ReactNode }) {
+  const activeAlerts = useAppSelector((state) => state.alerts.pending);
+
+useEffect(() => {
+
+  if(activeAlerts.length === 0){
+    stopAlertSound();
+    return;
+  }
 
 
+  startAlertSound();
 
 
-
-export function AlertNotificationProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-
-  const activeAlerts = useAppSelector(
-    state => state.alerts.pending
-  );
+  const latest =
+    activeAlerts[0];
 
 
-  useEffect(() => {
+  if(document.hidden){
 
-    if (activeAlerts.length > 0) {
-      startAlertSound();
-    } 
-    else {
-      stopAlertSound();
-    }
+    showAlertNotification(
+      latest?.title ?? '',
+      latest?.message ?? ''
+    );
 
-  }, [activeAlerts.length]);
+  }
 
+
+},[
+  activeAlerts.length
+]);
 
   return children;
 }

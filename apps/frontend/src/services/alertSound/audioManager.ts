@@ -1,14 +1,12 @@
 let alertAudio: HTMLAudioElement | null = null;
 
-
 export function initAlertSound() {
   if (!alertAudio) {
-    alertAudio = new Audio("/sounds/alert.mp3");
+    alertAudio = new Audio('/sounds/alert.mp3');
     alertAudio.volume = 0.7;
     alertAudio.loop = true;
   }
 }
-
 
 export async function unlockAlertSound() {
   initAlertSound();
@@ -27,7 +25,6 @@ export async function unlockAlertSound() {
   }
 }
 
-
 export function startAlertSound() {
   initAlertSound();
 
@@ -37,7 +34,6 @@ export function startAlertSound() {
     alertAudio.play().catch(() => {});
   }
 }
-
 
 export function stopAlertSound() {
   if (!alertAudio) return;

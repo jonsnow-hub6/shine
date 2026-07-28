@@ -14,8 +14,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
       <ThemeProvider>
         <AuthProvider>
           <AudioUnlockProvider>
-            <SoundPermissionModal/>
-          <AlertNotificationProvider>{children}</AlertNotificationProvider>
+            <SoundPermissionModal />
+            <AlertNotificationProvider>{children}</AlertNotificationProvider>
           </AudioUnlockProvider>
         </AuthProvider>
       </ThemeProvider>

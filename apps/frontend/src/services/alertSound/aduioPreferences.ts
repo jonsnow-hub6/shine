@@ -1,7 +1,7 @@
-const KEY = "shine_sound_enabled";
+const KEY = 'shine_sound_enabled';
 
 export function getSoundPreference() {
-  return localStorage.getItem(KEY) === "true";
+  return localStorage.getItem(KEY) === 'true';
 }
 
 export function setSoundPreference(enabled: boolean) {
