@@ -6,4 +6,4 @@ allowBuilds:
 # pnpm-workspace.yaml
 
 packages:
-  - "apps/*"
+  - 'apps/*'

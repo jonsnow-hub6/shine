@@ -5,17 +5,15 @@
   "scripts": {
     "frontend": "nx serve frontend",
     "backend": "nx serve backend",
-
     "dev": "nx run-many -t serve --projects=backend,frontend --parallel",
-
     "build": "nx build frontend",
-
     "docker:up": "docker compose up",
     "docker:down": "docker compose down",
-    "reset": "nx reset"
+    "reset": "nx reset",
+    "format": "prettier --write ."
   },
   "private": true,
-    "workspaces": [
+  "workspaces": [
     "apps/*"
   ],
   "devDependencies": {

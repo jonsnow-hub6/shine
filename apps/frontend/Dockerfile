@@ -4,18 +4,17 @@ WORKDIR /app
 
 RUN corepack enable
 
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml nx.json tsconfig.base.json ./
 
 RUN pnpm install --frozen-lockfile
 
-COPY . .
+COPY apps/frontend ./apps/frontend
 
 RUN pnpm nx build frontend
 
-
 FROM nginx:alpine
 
-COPY --from=builder /app/dist/apps/frontend /usr/share/nginx/html
+COPY --from=builder /app/apps/frontend/dist/ /usr/share/nginx/html
 
 COPY apps/frontend/nginx.conf /etc/nginx/conf.d/default.conf
 

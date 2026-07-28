@@ -9,14 +9,10 @@ export default defineConfig(() => ({
 
   cacheDir: '../../node_modules/.vite/frontend',
 
-  plugins: [
-    react(),
-    nxViteTsPaths(),
-    nxCopyAssetsPlugin(['*.md']),
-  ],
+  plugins: [react(), nxViteTsPaths(), nxCopyAssetsPlugin(['*.md'])],
 
   build: {
-    outDir: '../../dist/apps/frontend',
+    outDir: 'dist/',
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
