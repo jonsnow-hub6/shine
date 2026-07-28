@@ -1,0 +1,39 @@
+.alert-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.alert-card .ant-card-body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 8px;
+}
+
+.alert-list-scroll {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 6px;
+}
+
+/* Chrome / Edge / Safari */
+.alert-list-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.alert-list-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.alert-list-scroll::-webkit-scrollbar-thumb {
+  background: var(--ant-color-primary);
+  border-radius: 999px;
+}
+
+/* Firefox */
+.alert-list-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ant-color-primary) transparent;
+}

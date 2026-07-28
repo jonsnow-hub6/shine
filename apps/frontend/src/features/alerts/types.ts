@@ -1,7 +1,10 @@
+export type Severity = 'info' | 'warning' | 'critical';
+
 export interface Alert {
   id: string;
   title: string;
-  severity: string;
+  severity: Severity;
   message: string;
   timeOfCreation: string;
+  isNew?: boolean;
 }

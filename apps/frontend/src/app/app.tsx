@@ -1,27 +1,21 @@
-// Uncomment this line to use CSS modules
-// import styles from './app.module.css';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes';
+import { useEffect } from 'react';
+import { fetchAlerts } from '../features/alerts/alertsApi';
+import { setAlerts } from '../features/alerts/alertsSlice';
+import { useAppDispatch } from './store';
 
-import { Route, Routes, Link } from 'react-router-dom';
+export default function App() {
+  const dispatch = useAppDispatch();
 
-export function App() {
-  return (
-    <div>
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-        </ul>
-      </div>
-      <Routes>
-        <Route path="/" />
-      </Routes>
-      {/* END: routes */}
-    </div>
-  );
+  useEffect(() => {
+    async function init() {
+      const alerts = await fetchAlerts();
+      dispatch(setAlerts(alerts));
+    }
+
+    init();
+  }, [dispatch]);
+
+  return <RouterProvider router={router} />;
 }
-
-export default App;
