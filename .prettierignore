@@ -1,0 +1,24 @@
+# Build and Output directories
+dist
+build
+coverage
+tmp
+.nx
+.vite
+
+# Node dependencies
+node_modules
+
+# Generated files & locks
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+*.min.js
+*.min.css
+
+# Public static assets
+public
+
+# Pocketbase
+apps/backend/pb_data
+apps/backend/pb_migrations
