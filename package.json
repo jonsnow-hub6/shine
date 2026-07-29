@@ -67,7 +67,6 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.3.0",
-    "react-router-dom": "6.30.3",
-    "react-sounds": "^1.0.30"
+    "react-router-dom": "6.30.3"
   }
 }

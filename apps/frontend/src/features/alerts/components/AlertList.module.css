@@ -6,7 +6,6 @@
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 196, 0, 0.7) transparent;
 }
-
 /* Chrome / Edge / Safari */
 .alertList::-webkit-scrollbar {
   width: 8px;

@@ -32,9 +32,6 @@ importers:
       react-router-dom:
         specifier: 6.30.3
         version: 6.30.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      react-sounds:
-        specifier: ^1.0.30
-        version: 1.0.30(howler@2.2.4)(react@19.2.8)
     devDependencies:
       '@eslint/js':
         specifier: ^9.8.0
@@ -4330,9 +4327,6 @@ packages:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
 
-  howler@2.2.4:
-    resolution: {integrity: sha512-iARIBPgcQrwtEr+tALF+rapJ8qSc+Set2GJQl7xT1MQzWaVkFebdJhR3alVlSiUf5U7nAANKuj3aWpwerocD5w==}
-
   html-encoding-sniffer@3.0.0:
     resolution: {integrity: sha512-oWv4T4yJ52iKrufjnyZPkrN0CH3QnrUqdB6In1g5Fe1mia8GmF36gnfNySxoZtxD5+NmYw1EElVXiBk93UeskA==}
     engines: {node: '>=12'}
@@ -5674,13 +5668,6 @@ packages:
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
-
-  react-sounds@1.0.30:
-    resolution: {integrity: sha512-Wd+ttb38/GDV9f9kn/CmKcJGjbGffSPKwKPCo2AF0VOq3JPR86zOaK41nxI7ACRuUGPRUrlSwdfHN5+lbDX2Ew==}
-    hasBin: true
-    peerDependencies:
-      howler: ^2.2.3
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   react@19.2.8:
     resolution: {integrity: sha512-PWaYA1L/q9u2u7xYQi+Y3L3Yfnie7XyLeaJICV1MGD6LprsBxcAqGjYyr0eY3p+QdsA+x/Irkt4Qif8D63+Sbw==}
@@ -11629,8 +11616,6 @@ snapshots:
 
   he@1.2.0: {}
 
-  howler@2.2.4: {}
-
   html-encoding-sniffer@3.0.0:
     dependencies:
       whatwg-encoding: 2.0.0
@@ -13427,11 +13412,6 @@ snapshots:
   react-router@6.30.3(react@19.2.8):
     dependencies:
       '@remix-run/router': 1.23.2
-      react: 19.2.8
-
-  react-sounds@1.0.30(howler@2.2.4)(react@19.2.8):
-    dependencies:
-      howler: 2.2.4
       react: 19.2.8
 
   react@19.2.8: {}
