@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Modal, Button, Typography } from 'antd';
-import { SoundOutlined, StopOutlined } from '@ant-design/icons';
+import { Modal,Typography } from 'antd';
+import { StopOutlined } from '@ant-design/icons';
 import { useSound } from 'react-sounds';
 import { selectActiveAlerts } from '../features/alerts/alertsSelectors';
 import { useIsPWA } from '../hooks/useIsPWA';
