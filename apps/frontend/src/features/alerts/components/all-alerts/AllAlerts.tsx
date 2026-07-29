@@ -1,13 +1,10 @@
-import { Card, Collapse, Empty, Flex, Tag, Typography } from 'antd';
-
-import { useAlerts } from '../../hooks/useAlerts';
-import { alertSeverityConfig } from '../../consts';
+import { Card, Empty, Flex } from 'antd';
 import styles from './styles.module.css';
-
-const { Text } = Typography;
+import { AlertCard } from './AlertCard';
+import { useAppSelector } from 'apps/frontend/src/app/store';
 
 export function AllAlerts() {
-  const alerts = useAlerts();
+  const alerts = useAppSelector((state) => state.alerts.items);
 
   return (
     <Card
@@ -32,72 +29,9 @@ export function AllAlerts() {
           <Empty description="No alerts yet" />
         ) : (
           <Flex vertical gap={10}>
-            {alerts.map((alert) => {
-              const severity = alertSeverityConfig[alert.severity];
-
-              return (
-                <Card
-                  key={alert.id}
-                  size="small"
-                  style={{
-                    borderLeft: `5px solid ${severity.color}`,
-
-                    background: `${severity.color}12`,
-                  }}
-                >
-                  <Collapse
-                    bordered={false}
-                    ghost
-                    items={[
-                      {
-                        key: alert.id,
-
-                        label: (
-                          <Flex
-                            align="center"
-                            gap={8}
-                            style={{
-                              width: '100%',
-                            }}
-                          >
-                            <Tag color={severity.tag}>{severity.label}</Tag>
-
-                            <Text
-                              strong
-                              ellipsis
-                              style={{
-                                flex: 1,
-                              }}
-                            >
-                              {alert.title}
-                            </Text>
-                          </Flex>
-                        ),
-
-                        children: (
-                          <Flex vertical gap={8}>
-                            <div>
-                              <Text strong>Message</Text>
-
-                              <div>{alert.message}</div>
-                            </div>
-
-                            <div>
-                              <Text strong>Created:</Text>{' '}
-                              {new Date(alert.timestamp).toLocaleString()}
-                            </div>
-
-                            <div>
-                              <Text strong>Alert ID:</Text> {alert.id}
-                            </div>
-                          </Flex>
-                        ),
-                      },
-                    ]}
-                  />
-                </Card>
-              );
-            })}
+            {alerts.map((alert) => (
+              <AlertCard key={alert.id} alert={alert} />
+            ))}
           </Flex>
         )}
       </div>

@@ -1,6 +1,6 @@
 import { useMemo, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { selectActiveAlerts } from '../../alerts/alertsSelectors';
+import { selectActiveAlerts } from '../../../alerts/alertsSelectors';
 
 export function useAlertSounds() {
   const activeAlerts = useSelector(selectActiveAlerts);
