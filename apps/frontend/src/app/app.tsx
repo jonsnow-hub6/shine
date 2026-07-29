@@ -1,27 +1,6 @@
-// Uncomment this line to use CSS modules
-// import styles from './app.module.css';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes';
 
-import { Route, Routes, Link } from 'react-router-dom';
-
-export function App() {
-  return (
-    <div>
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-        </ul>
-      </div>
-      <Routes>
-        <Route path="/" />
-      </Routes>
-      {/* END: routes */}
-    </div>
-  );
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App;

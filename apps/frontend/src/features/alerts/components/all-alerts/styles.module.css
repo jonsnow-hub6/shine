@@ -1,0 +1,49 @@
+.alertList {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 196, 0, 0.7) transparent;
+}
+/* Chrome / Edge / Safari */
+.alertList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.alertList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.alertList::-webkit-scrollbar-thumb {
+  background: rgba(255, 196, 0, 0.7);
+  border-radius: 999px;
+}
+
+.alertList::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 196, 0, 0.9);
+}
+
+/* Register card container so responsive hiding depends on CARD width, not screen width */
+.cardContainer {
+  container-type: inline-size;
+}
+
+.timestamp {
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+/* Hide the header timestamp when the card container width drops below 450px */
+@container (max-width: 450px) {
+  .timestamp {
+    display: none !important;
+  }
+}
+
+/* Fallback: if container queries aren't enabled in parent layout, hide on narrow screens */
+@media (max-width: 576px) {
+  .timestamp {
+    display: none !important;
+  }
+}
