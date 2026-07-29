@@ -1,34 +1,21 @@
 export async function requestNotificationPermission() {
-
-  if (!("Notification" in window)) {
+  if (!('Notification' in window)) {
     return false;
   }
 
+  const permission = await Notification.requestPermission();
 
-  const permission =
-    await Notification.requestPermission();
-
-
-  return permission === "granted";
+  return permission === 'granted';
 }
 
-
-
-export function showAlertNotification(
-  title:string,
-  message:string
-) {
-
-  if (
-    Notification.permission !== "granted"
-  ) {
+export function showAlertNotification(title: string, message: string) {
+  if (Notification.permission !== 'granted') {
     return;
   }
 
-
-  new Notification(title,{
+  new Notification(title, {
     body: message,
-    icon:"/logo.png",
-    requireInteraction:true,
+    icon: '/images/alert.png',
+    requireInteraction: true,
   });
 }

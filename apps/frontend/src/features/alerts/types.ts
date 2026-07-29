@@ -5,6 +5,6 @@ export interface Alert {
   title: string;
   severity: Severity;
   message: string;
-  timeOfCreation: string;
+  timestamp: string;
   isNew?: boolean;
 }

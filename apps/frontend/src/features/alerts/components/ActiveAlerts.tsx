@@ -4,6 +4,7 @@ import { CheckOutlined } from '@ant-design/icons';
 
 import { confirmAlert } from '../alertsSlice';
 import { useAppDispatch, useAppSelector } from '../../../app/store';
+import { DATE_FORMAT_OPTIONS } from '../../../consts';
 
 const severityConfig = {
   critical: {
@@ -85,7 +86,7 @@ export default function ActiveAlerts() {
                     </Typography.Paragraph>
 
                     <Typography.Text type="secondary">
-                      {new Date(alert.timeOfCreation).toLocaleString()}
+                      {new Date(alert.timestamp).toLocaleString('en-US', DATE_FORMAT_OPTIONS)}
                     </Typography.Text>
                   </Flex>
 

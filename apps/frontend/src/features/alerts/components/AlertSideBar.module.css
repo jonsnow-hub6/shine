@@ -1,0 +1,26 @@
+.alertList {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 196, 0, 0.7) transparent;
+}
+
+/* Chrome / Edge / Safari */
+.alertList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.alertList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.alertList::-webkit-scrollbar-thumb {
+  background: rgba(255, 196, 0, 0.7);
+  border-radius: 999px;
+}
+
+.alertList::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 196, 0, 0.9);
+}

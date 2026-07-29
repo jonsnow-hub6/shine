@@ -20,7 +20,7 @@ export function AlertCard({ alert }: { alert: Alert }) {
 
       <div>
         Time:
-        {alert.timeOfCreation}
+        {alert.timestamp}
       </div>
     </Card>
   );

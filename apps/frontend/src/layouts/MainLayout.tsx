@@ -25,7 +25,7 @@ export default function MainLayout() {
       >
         <Flex align="center" gap={8}>
           <img
-            src="/image.png"
+            src="/images/logo.png"
             alt="Shine Logo"
             style={{
               width: '3rem',

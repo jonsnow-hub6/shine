@@ -1,71 +1,48 @@
-import {
-  Card,
-  Collapse,
-  Flex,
-  Tag,
-  Typography,
-} from "antd";
+import { Card, Collapse, Flex, Tag, Typography } from 'antd';
 
-import {
-  useAlerts,
-} from "../hooks/useAlerts";
-import { alertSeverityConfig } from "../consts";
-
-
-
+import { useAlerts } from '../hooks/useAlerts';
+import { alertSeverityConfig } from '../consts';
+import styles from './AlertSideBar.module.css';
 
 const { Text } = Typography;
 
-
 export default function AlertSidebar() {
-
   const alerts = useAlerts();
-
 
   return (
     <Card
       title={`Alerts (${alerts.length})`}
       style={{
-        height: "100%",
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
       }}
       styles={{
         body: {
+          flex: 1,
+          minHeight: 0,
           padding: 8,
-          height: "calc(100% - 57px)",
-          overflow: "auto",
         },
       }}
+      // classNames={{
+      //   body: styles['alertList'] || '',
+      // }}
     >
-
-      <Flex
-        vertical
-        gap={10}
-      >
-
-        {
-          alerts.map((alert) => {
-
-            const severity =
-              alertSeverityConfig[
-                alert.severity
-              ];
-
+      <div className={styles['alertList']}>
+        <Flex vertical gap={10}>
+          {alerts.map((alert) => {
+            const severity = alertSeverityConfig[alert.severity];
 
             return (
-
               <Card
                 key={alert.id}
                 size="small"
-
                 style={{
-                  borderLeft:
-                    `5px solid ${severity.color}`,
+                  borderLeft: `5px solid ${severity.color}`,
 
-                  background:
-                    `${severity.color}12`,
+                  background: `${severity.color}12`,
                 }}
               >
-
                 <Collapse
                   bordered={false}
                   ghost
@@ -73,101 +50,54 @@ export default function AlertSidebar() {
                     {
                       key: alert.id,
 
-
-                      label:(
-
+                      label: (
                         <Flex
                           align="center"
                           gap={8}
                           style={{
-                            width:"100%",
+                            width: '100%',
                           }}
                         >
-
-                          <Tag
-                            color={severity.tag}
-                          >
-                            {severity.label}
-                          </Tag>
-
+                          <Tag color={severity.tag}>{severity.label}</Tag>
 
                           <Text
                             strong
                             ellipsis
                             style={{
-                              flex:1,
+                              flex: 1,
                             }}
                           >
                             {alert.title}
                           </Text>
-
                         </Flex>
-
                       ),
 
-
-                      children:(
-
-                        <Flex
-                          vertical
-                          gap={8}
-                        >
-
+                      children: (
+                        <Flex vertical gap={8}>
                           <div>
-                            <Text strong>
-                              Message
-                            </Text>
+                            <Text strong>Message</Text>
 
-                            <div>
-                              {alert.message}
-                            </div>
+                            <div>{alert.message}</div>
                           </div>
 
-
-
                           <div>
-                            <Text strong>
-                              Created:
-                            </Text>
-
-                            {" "}
-
-                            {
-                              new Date(
-                                alert.timeOfCreation
-                              )
-                              .toLocaleString()
-                            }
+                            <Text strong>Created:</Text>{' '}
+                            {new Date(alert.timestamp).toLocaleString()}
                           </div>
 
-
                           <div>
-                            <Text strong>
-                              Alert ID:
-                            </Text>
-
-                            {" "}
-                            {alert.id}
+                            <Text strong>Alert ID:</Text> {alert.id}
                           </div>
-
-
-                         
                         </Flex>
-
                       ),
                     },
                   ]}
                 />
-
               </Card>
-
             );
-          })
-
-        }
-
-      </Flex>
-
+          })}
+        </Flex>
+      </div>
     </Card>
   );
 }
