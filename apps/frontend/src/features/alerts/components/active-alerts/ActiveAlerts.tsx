@@ -3,7 +3,6 @@ import { useAppSelector } from '../../../../app/store';
 import styles from './styles.module.css';
 import { ActiveAlertCard } from './ActiveAlertCard';
 
-
 export function ActiveAlerts() {
   const alerts = useAppSelector((state) => state.alerts.pending);
 
@@ -30,7 +29,9 @@ export function ActiveAlerts() {
           <Empty description="No active alerts" />
         ) : (
           <Flex vertical gap={12}>
-            {alerts.map((alert) => <ActiveAlertCard key={alert.id} alert={alert} />)}
+            {alerts.map((alert) => (
+              <ActiveAlertCard key={alert.id} alert={alert} />
+            ))}
           </Flex>
         )}
       </div>

@@ -1,7 +1,7 @@
 import { Card, Empty, Flex } from 'antd';
 import styles from './styles.module.css';
 import { AlertCard } from './AlertCard';
-import { useAppSelector } from 'apps/frontend/src/app/store';
+import { useAppSelector } from '../../../../app/store';
 
 export function AllAlerts() {
   const alerts = useAppSelector((state) => state.alerts.items);

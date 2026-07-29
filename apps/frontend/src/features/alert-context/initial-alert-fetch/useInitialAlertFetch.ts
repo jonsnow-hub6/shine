@@ -1,7 +1,7 @@
-import { useAppDispatch } from "apps/frontend/src/app/store";
-import { useEffect } from "react";
-import { fetchAlerts } from "../../alerts/alertsApi";
-import { setAlerts } from "../../alerts/alertsSlice";
+import { useAppDispatch } from '../../../app/store';
+import { useEffect } from 'react';
+import { fetchAlerts } from '../../alerts/alertsApi';
+import { setAlerts } from '../../alerts/alertsSlice';
 
 export function useInitialAlertFetch() {
   const dispatch = useAppDispatch();
