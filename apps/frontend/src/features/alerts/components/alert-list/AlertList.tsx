@@ -1,5 +1,5 @@
 import { Row, Col } from 'antd';
-import type { Alert } from '../types';
+import type { Alert } from '../../types';
 import { AlertCard } from './AlertCard';
 
 export function AlertList({ alerts }: { alerts: Alert[] }) {

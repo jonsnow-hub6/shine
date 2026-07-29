@@ -1,5 +1,5 @@
 import { Tag } from 'antd';
-import type { Severity } from '../types';
+import type { Severity } from '../../types';
 
 export function SeverityTag({ severity }: { severity: Severity }) {
   const color = {

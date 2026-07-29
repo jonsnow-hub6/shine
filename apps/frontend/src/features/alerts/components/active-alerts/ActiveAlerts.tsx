@@ -2,27 +2,31 @@ import { Card, Button, Empty, Flex, Tag, Typography } from 'antd';
 
 import { CheckOutlined } from '@ant-design/icons';
 
-import { confirmAlert } from '../alertsSlice';
-import { useAppDispatch, useAppSelector } from '../../../app/store';
-import { DATE_FORMAT_OPTIONS } from '../../../consts';
-import styles from './AlertList.module.css';
+import { confirmAlert } from '../../alertsSlice';
+import { useAppDispatch, useAppSelector } from '../../../../app/store';
+import { DATE_FORMAT_OPTIONS } from '../../../../consts';
+import styles from './styles.module.css'
+import type { Severity } from '../../types';
 
-const severityConfig = {
+const severityConfig : Record<Severity, { color: string; label: string; className: string }>= {
   critical: {
     color: 'red',
     label: 'Critical',
+    className: styles['criticalAnimation'] || ''
   },
   warning: {
     color: 'gold',
     label: 'Warning',
+    className: styles['warningAnimation']  || ''
   },
   info: {
     color: 'blue',
     label: 'Info',
+    className: ''
   },
 };
 
-export default function ActiveAlerts() {
+export function ActiveAlerts() {
   const dispatch = useAppDispatch();
 
   const alerts = useAppSelector((state) => state.alerts.pending);
@@ -56,7 +60,8 @@ export default function ActiveAlerts() {
               return (
                 <Card
                   key={alert.id}
-                  className={alert.isNew ? 'alert-critical' : ''}
+                  className={severity.className}
+                  // className={alert.isNew ? 'alert-critical' : ''}
                   size="small"
                   style={{
                     borderLeft: `5px solid ${

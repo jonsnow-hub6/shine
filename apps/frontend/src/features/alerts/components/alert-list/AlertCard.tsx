@@ -1,5 +1,5 @@
 import { Card, theme } from 'antd';
-import type { Alert } from '../types';
+import type { Alert } from '../../types';
 import { SeverityTag } from './SeverityTag';
 
 export function AlertCard({ alert }: { alert: Alert }) {

@@ -1,12 +1,12 @@
 import { Card, Collapse, Empty, Flex, Tag, Typography } from 'antd';
 
-import { useAlerts } from '../hooks/useAlerts';
-import { alertSeverityConfig } from '../consts';
-import styles from './AlertList.module.css';
+import { useAlerts } from '../../hooks/useAlerts';
+import { alertSeverityConfig } from '../../consts';
+import styles from './styles.module.css';
 
 const { Text } = Typography;
 
-export default function AlertSidebar() {
+export function AllAlerts() {
   const alerts = useAlerts();
 
   return (

@@ -10,7 +10,7 @@ export function ThemeToggle() {
   return (
     <Button
       type="text"
-      icon={mode === 'dark' ? <SunOutlined /> : <MoonOutlined />}
+      icon={mode === 'light' ? <SunOutlined /> : <MoonOutlined />}
       onClick={toggleTheme}
     />
   );

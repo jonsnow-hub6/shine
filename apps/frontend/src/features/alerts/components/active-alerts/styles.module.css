@@ -1,0 +1,68 @@
+.criticalAnimation {
+  animation: criticalPulse 1.2s infinite;
+}
+
+.warningAnimation {
+  animation: warningPulse 1.2s infinite;
+}
+
+.alert-new {
+  animation: alertPulse 1.8s infinite;
+}
+
+@keyframes criticalPulse {
+  0% {
+    border-color: #ff4d4f;
+    box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.6);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 77, 79, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 79, 0);
+  }
+}
+
+@keyframes warningPulse {
+  0% {
+    border-color: #dbaa22;
+    box-shadow: 0 0 0 0 rgba(255, 170, 34, 0.6);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 77, 79, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 79, 0);
+  }
+}
+
+.alertList {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 196, 0, 0.7) transparent;
+}
+
+/* Chrome / Edge / Safari */
+.alertList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.alertList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.alertList::-webkit-scrollbar-thumb {
+  background: rgba(255, 196, 0, 0.7);
+  border-radius: 999px;
+}
+
+.alertList::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 196, 0, 0.9);
+}
