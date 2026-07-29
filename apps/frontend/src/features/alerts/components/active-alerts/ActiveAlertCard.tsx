@@ -1,10 +1,10 @@
 import { CheckOutlined } from '@ant-design/icons';
 import { Card, Flex, Tag, Typography, Button } from 'antd';
-import { DATE_FORMAT_OPTIONS } from '../../../../consts';
 import { confirmAlert } from '../../alertsSlice';
 import type { Alert } from '../../types';
 import { ALERT_SEVERITY_CONFIG } from '../../consts';
 import { useAppDispatch } from '../../../../app/store';
+import { fullDateFormatter } from '../../../../common/utils';
 
 export function ActiveAlertCard({ alert }: { alert: Alert }) {
   const severity = ALERT_SEVERITY_CONFIG[alert.severity];
@@ -50,7 +50,7 @@ export function ActiveAlertCard({ alert }: { alert: Alert }) {
           </Typography.Paragraph>
 
           <Typography.Text type="secondary">
-            {new Date(alert.timestamp).toLocaleString('en-US', DATE_FORMAT_OPTIONS)}
+            {fullDateFormatter(alert.timestamp)}
           </Typography.Text>
         </Flex>
 

@@ -2,6 +2,7 @@ import { Card, Collapse, Flex, Tag, Typography } from 'antd';
 import type { Alert } from '../../types';
 import { ALERT_SEVERITY_CONFIG } from '../../consts';
 import styles from './styles.module.css'; // Adjust path if needed
+import { fullDateFormatter } from '../../../../common/utils';
 
 const { Text } = Typography;
 
@@ -30,7 +31,7 @@ export function AlertCard({ alert }: { alert: Alert }) {
                 gap={8}
                 style={{
                   width: '100%',
-                  minWidth: 0, // Critical for Ant Design Flex item truncation
+                  minWidth: 0, 
                 }}
               >
                 <Tag color={severity.tag} style={{ flexShrink: 0 }}>
@@ -42,14 +43,14 @@ export function AlertCard({ alert }: { alert: Alert }) {
                   ellipsis
                   style={{
                     flex: '1 1 0%',
-                    minWidth: 0, // Prevents text from pushing timestamp off screen
+                    minWidth: 0,
                   }}
                 >
                   {alert.title}
                 </Text>
 
                 <div className={styles['timestamp']}>
-                  {new Date(alert.timestamp).toLocaleString()}
+                  {fullDateFormatter(alert.timestamp)}
                 </div>
               </Flex>
             ),
@@ -61,7 +62,7 @@ export function AlertCard({ alert }: { alert: Alert }) {
                 </div>
 
                 <div>
-                  <Text strong>Created:</Text> {new Date(alert.timestamp).toLocaleString()}
+                  <Text strong>Created:</Text> {fullDateFormatter(alert.timestamp)}
                 </div>
 
                 <div>
