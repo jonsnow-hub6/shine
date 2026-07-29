@@ -7,6 +7,7 @@ const checkIsPWA = (): boolean => {
     window.matchMedia('(display-mode: standalone)').matches ||
     window.matchMedia('(display-mode: minimal-ui)').matches ||
     window.matchMedia('(display-mode: window-controls-overlay)').matches ||
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window.navigator as any).standalone === true ||
     document.referrer.includes('android-app://')
   );

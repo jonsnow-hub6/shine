@@ -1,4 +1,4 @@
-import { Flex, Image, Layout, Typography, theme } from 'antd';
+import { Flex, Layout, Typography, theme } from 'antd';
 import { Outlet } from 'react-router-dom';
 import { ThemeToggle } from '../features/theme/ThemeToggle';
 
