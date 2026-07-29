@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Modal, Button, Typography } from 'antd';
-import { SoundOutlined } from '@ant-design/icons';
+import { SoundOutlined, StopOutlined } from '@ant-design/icons';
 import { useSound } from 'react-sounds';
 import { selectActiveAlerts } from '../features/alerts/alertsSelectors';
 import { useIsPWA } from '../hooks/useIsPWA';
@@ -19,28 +19,20 @@ export const AlertSoundNotificationProvider: React.FC<{ children: React.ReactNod
     ? activeAlerts.length > 0
     : Object.keys(activeAlerts || {}).length > 0;
 
-  const [hasSoundPermission, setHasSoundPermission] = useState<boolean>(false);
 
   const { play, stop } = useSound('/sounds/alert.mp3', {
     loop: true,
     volume: 1.0,
   });
 
-  const handleEnableAudio = useCallback(() => {
-    setHasSoundPermission(true);
-    if (hasActiveAlerts) {
-      play();
-    }
-  }, [hasActiveAlerts, play, setHasSoundPermission]);
-
   // Handle audio loop
   useEffect(() => {
-    if (hasActiveAlerts && (hasSoundPermission || isPWA)) {
+    if (hasActiveAlerts) {
       play();
     } else {
       stop();
     }
-  }, [hasActiveAlerts, hasSoundPermission, isPWA, play, stop]);
+  }, [hasActiveAlerts, isPWA, play, stop]);
 
   return (
     <>
@@ -48,7 +40,7 @@ export const AlertSoundNotificationProvider: React.FC<{ children: React.ReactNod
 
       {!isPWA && (
         <Modal
-          open={!hasSoundPermission}
+          open={true}
           footer={null}
           closable={false}
           maskClosable={false}
@@ -56,20 +48,11 @@ export const AlertSoundNotificationProvider: React.FC<{ children: React.ReactNod
           destroyOnClose
         >
           <div style={{ textAlign: 'center', padding: '24px 12px' }}>
-            <SoundOutlined style={{ fontSize: 48, color: '#faad14', marginBottom: 16 }} />
-            <Title level={4}>Audio Notifications Required</Title>
+            <StopOutlined style={{ fontSize: 48, color: '#faad14', marginBottom: 16 }} />
+            <Title level={4}>Desktop App Required</Title>
             <Paragraph>
-              Shine requires audio permission to alert operators when active alerts require
-              attention.
+              Shine does not support browser access to the app, please click on the Install app/ Open in app in the upper right corner of your browser to open the shine desktop app.
             </Paragraph>
-            <Button
-              type="primary"
-              size="large"
-              icon={<SoundOutlined />}
-              onClick={handleEnableAudio}
-            >
-              Enable Audio Alerts
-            </Button>
           </div>
         </Modal>
       )}

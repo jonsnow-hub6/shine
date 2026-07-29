@@ -11,7 +11,7 @@ export default function AlertSidebar() {
 
   return (
     <Card
-      title={`Alerts (${alerts.length})`}
+      title={`Previous Alerts (${alerts.length})`}
       style={{
         height: '100%',
         display: 'flex',
@@ -24,9 +24,6 @@ export default function AlertSidebar() {
           padding: 8,
         },
       }}
-      // classNames={{
-      //   body: styles['alertList'] || '',
-      // }}
     >
       <div className={styles['alertList']}>
         <Flex vertical gap={10}>
