@@ -7,8 +7,8 @@ export const TIME_FORMAT_OPTIONS: Intl.DateTimeFormatOptions = {
 };
 
 export const FULL_DATE_FORMAT_OPTIONS: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    ...TIME_FORMAT_OPTIONS,
-  };
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  ...TIME_FORMAT_OPTIONS,
+};

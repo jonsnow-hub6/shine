@@ -49,9 +49,7 @@ export function ActiveAlertCard({ alert }: { alert: Alert }) {
             {alert.message}
           </Typography.Paragraph>
 
-          <Typography.Text type="secondary">
-            {fullDateFormatter(alert.timestamp)}
-          </Typography.Text>
+          <Typography.Text type="secondary">{fullDateFormatter(alert.timestamp)}</Typography.Text>
         </Flex>
 
         <Button

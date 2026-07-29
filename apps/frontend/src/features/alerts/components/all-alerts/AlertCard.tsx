@@ -31,7 +31,7 @@ export function AlertCard({ alert }: { alert: Alert }) {
                 gap={8}
                 style={{
                   width: '100%',
-                  minWidth: 0, 
+                  minWidth: 0,
                 }}
               >
                 <Tag color={severity.tag} style={{ flexShrink: 0 }}>
@@ -49,9 +49,7 @@ export function AlertCard({ alert }: { alert: Alert }) {
                   {alert.title}
                 </Text>
 
-                <div className={styles['timestamp']}>
-                  {fullDateFormatter(alert.timestamp)}
-                </div>
+                <div className={styles['timestamp']}>{fullDateFormatter(alert.timestamp)}</div>
               </Flex>
             ),
             children: (
